@@ -1,0 +1,92 @@
+query Shows(
+    $station: StationsEnum!
+    $first: Int
+    $after: String
+) {
+    shows(station: $station, first: $first, after: $after) {
+        edges {
+            node {
+                id
+                title
+                url
+                standFirst
+                podcast {
+                    rss
+                    itunes
+                }
+#                personalitiesConnection {
+#                    edges {
+#                        node {
+#                            id
+#                            name
+#                        }
+#                        relation
+#                        info
+#                    }
+#                }
+#                diffusionsConnection {
+#                    edges {
+#                        node {
+#                            id
+#                            title
+#                            standFirst
+#                            url
+#                            place
+#                            performanceVideo {
+#                                youtube
+#                                dailymotion
+#                            }
+#                            published_date
+#                            isStreamable
+#                            podcastEpisode {
+#                                id
+#                                title
+#                                url
+#                                playerUrl
+#                                created
+#                                duration
+#                            }
+#                            personalitiesConnection {
+#                                edges {
+#                                    node {
+#                                        id
+#                                        name
+#                                    }
+#                                    relation
+#                                    info
+#                                }
+#                            }
+#                            taxonomiesConnection {
+#                                edges {
+#                                    node {
+#                                        id
+#                                        path
+#                                        type
+#                                        title
+#                                        standFirst
+#                                    }
+#                                    relation
+#                                    info
+#                                }
+#                            }
+#                        }
+#                    }
+#                }
+#                taxonomiesConnection {
+#                    edges {
+#                        node {
+#                            id
+#                            path
+#                            type
+#                            title
+#                            standFirst
+#                        }
+#                        relation
+#                        info
+#                    }
+#                }
+            }
+            cursor
+        }
+    }
+}

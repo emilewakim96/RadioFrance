@@ -1,0 +1,7 @@
+query Stations {
+    brands {
+        id,
+        title,
+        description
+    }
+}
