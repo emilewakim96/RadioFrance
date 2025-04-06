@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.example.radiofrance.navigation.Route
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -49,13 +50,13 @@ internal fun StationsScreen(
                     Text(
                         modifier = Modifier.padding(15.dp),
                         text = state.title,
-                        style = MaterialTheme.typography.headlineMedium
+                        style = MaterialTheme.typography.headlineSmall
                     )
                 }
                 items(state.items.size) { index ->
                     val item = items[index]
                     StationCard(item = item) {
-                        navController.navigate("details/${item.id}")
+                        navController.navigate(Route.Shows(item.id))
                     }
                 }
             }

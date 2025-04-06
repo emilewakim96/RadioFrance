@@ -10,7 +10,7 @@ class StationsMapper(
 
     fun mapToState(items: List<Station>, actionBuilder: HomeActionBuilder): StationsState =
         StationsState(
-//            title = resources.title,
+            title = "Stations",
             items = items.map {
                 StationItem(
                     id = it.id,

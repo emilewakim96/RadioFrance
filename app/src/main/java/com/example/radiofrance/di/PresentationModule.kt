@@ -2,6 +2,7 @@ package com.example.radiofrance.di
 
 
 import com.example.radiofrance.actions.HomeActionBuilder
+import com.example.radiofrance.shows.ShowsMapper
 import com.example.radiofrance.shows.ShowsViewModel
 import com.example.radiofrance.stations.StationsMapper
 import com.example.radiofrance.stations.StationsResources
@@ -12,6 +13,7 @@ import org.koin.dsl.module
 
 val presentationModule = module {
     factoryOf(::StationsMapper)
+    factoryOf(::ShowsMapper)
     viewModelOf(::StationsViewModel)
     viewModelOf(::ShowsViewModel)
 

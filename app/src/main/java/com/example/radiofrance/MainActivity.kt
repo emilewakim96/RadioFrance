@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.radiofrance.navigation.Destinations
+import com.example.radiofrance.navigation.Route
 import com.example.radiofrance.shows.ShowsScreen
 import com.example.radiofrance.stations.StationsScreen
 import com.example.radiofrance.ui.theme.RadioFranceTheme
@@ -32,10 +32,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Destinations.STATIONS) {
-        composable(Destinations.STATIONS) { StationsScreen(navController) }
-        composable("${Destinations.SHOWS}/{itemId}") { backStackEntry ->
-            val itemId = backStackEntry.arguments?.getString("itemId")
+    NavHost(
+        navController = navController,
+        startDestination = Route.Stations
+    ) {
+        composable<Route.Stations> {
+            StationsScreen(navController)
+        }
+        composable<Route.Shows> { backStackEntry ->
+            val itemId = backStackEntry.arguments?.getString(Route.Shows::stationId.name)
             itemId?.let { ShowsScreen(navController, it) }
         }
     }
