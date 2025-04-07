@@ -1,5 +1,7 @@
 package com.example.presentation.stations
 
 interface StationsResources {
-    val title: String
+    val stationsScreenTitle: String
+    val clickForUrlText: String
+    fun getShowsForStationScreenTitle(stationId: String): String
 }

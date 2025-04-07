@@ -30,8 +30,8 @@ internal fun StationsScreen(
     val context = LocalContext.current
 
     when {
-        state.isError -> {
-            ErrorScreen(context.getString(R.string.default_error))
+        state.error != null -> {
+            ErrorScreen(state.error?.message ?: context.getString(R.string.default_error))
         }
 
         state.isLoading -> {

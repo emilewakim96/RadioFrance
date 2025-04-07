@@ -20,7 +20,7 @@ class StationsViewModel(
                 _state.value = mapper.mapToState(it)
             }.onFailure {
                 _state.value = _state.value.copy(
-                    isError = true
+                    error = it
                 )
             }
         }

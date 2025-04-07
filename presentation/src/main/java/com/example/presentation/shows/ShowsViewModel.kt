@@ -25,7 +25,7 @@ class ShowsViewModel(
     }
 
     private val _state = MutableStateFlow(ShowsState())
-    private val stationId = savedStateHandle.get<String>("stationId").orEmpty()
+    private val stationId = savedStateHandle.get<String>(STATION_ID_KEY).orEmpty()
 
     val state = _state
         .onStart {
@@ -33,7 +33,7 @@ class ShowsViewModel(
                 _state.value = mapper.mapToState(it, stationId, actionBuilder)
             }.onFailure {
                 _state.value = _state.value.copy(
-                    isError = true
+                    error = it
                 )
             }
         }
@@ -51,3 +51,5 @@ class ShowsViewModel(
         )
     }
 }
+
+const val STATION_ID_KEY = "stationId"

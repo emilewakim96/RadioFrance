@@ -4,12 +4,12 @@ import com.example.domain.model.Station
 import com.example.presentation.model.StationItem
 
 class StationsMapper(
-//    private val resources: StationsResources,
+    private val resources: StationsResources
 ) {
 
     fun mapToState(items: List<Station>): StationsState =
         StationsState(
-            title = "Stations",
+            title = resources.stationsScreenTitle,
             items = items.map {
                 StationItem(
                     id = it.id,
@@ -17,8 +17,7 @@ class StationsMapper(
                     description = it.description
                 )
             },
-            isLoading = false,
-            isError = false
+            isLoading = false
         )
 
 }

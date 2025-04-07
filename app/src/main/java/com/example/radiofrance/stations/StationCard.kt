@@ -23,15 +23,18 @@ fun StationCard(item: StationItem, onClick: () -> Unit) {
             },
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
-            Text(text = item.title, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold))
-            item.description?.let { Text(text = it, style = MaterialTheme.typography.bodyMedium) }
-//            Button(
-//                onClick = {
-//                    item.changeColorAction.execute(Color.Red)
-//                }
-//            ) {
-//                Text(text = "Changer la couleur")
-//            }
+            Text(
+                modifier = Modifier.padding(4.dp),
+                text = item.title,
+                style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
+            )
+            item.description?.let {
+                Text(
+                    modifier = Modifier.padding(4.dp),
+                    text = it,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
     }
 }

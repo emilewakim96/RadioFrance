@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RadioFrance</string>
     <string name="default_error">Erreur de chargement des données</string>
+    <string name="stations_screen_title">Stations</string>
+    <string name="shows_screen_title">Émissions pour %s</string>
+    <string name="click_for_url">"Clicker pour afficher l'url"</string>
 </resources>

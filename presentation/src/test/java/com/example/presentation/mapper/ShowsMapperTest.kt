@@ -1,15 +1,12 @@
 package com.example.presentation.mapper
 
 import com.example.domain.model.Show
-import com.example.domain.model.Station
 import com.example.presentation.Action
 import com.example.presentation.model.ShowItem
-import com.example.presentation.model.StationItem
 import com.example.presentation.shows.ShowsActionBuilder
 import com.example.presentation.shows.ShowsMapper
 import com.example.presentation.shows.ShowsState
-import com.example.presentation.stations.StationsMapper
-import com.example.presentation.stations.StationsState
+import com.example.presentation.stations.StationsResources
 import com.google.common.truth.Truth
 import io.mockk.every
 import io.mockk.mockk
@@ -18,7 +15,11 @@ import org.junit.Test
 
 class ShowsMapperTest {
 
-    private val mapper = ShowsMapper()
+    private val resources: StationsResources = mockk {
+        every { getShowsForStationScreenTitle("franceinfo") } returns "Shows for franceinfo"
+        every { clickForUrlText } returns "Clicker pour afficher l'url"
+    }
+    private val mapper = ShowsMapper(resources)
     private val actionBuilder = mockk<ShowsActionBuilder> {
         every { seeUrl(any(), any()) } returns seeUrlAction
     }
@@ -26,11 +27,11 @@ class ShowsMapperTest {
     @Test
     fun `mapToShows return return ShowsState`() {
         val shows = createShowsList()
-        Truth.assertThat(mapper.mapToState(shows, "franceInfo", actionBuilder)).isEqualTo(
+        Truth.assertThat(mapper.mapToState(shows, "franceinfo", actionBuilder)).isEqualTo(
             ShowsState(
-                title = "Shows for franceInfo",
+                title = "Shows for franceinfo",
                 isLoading = false,
-                isError = false,
+                error = null,
                 items = createShowItemsList()
             )
         )

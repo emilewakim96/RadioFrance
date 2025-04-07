@@ -6,5 +6,5 @@ data class ShowsState(
     val title: String = "",
     val items: List<ShowItem> = emptyList(),
     val isLoading: Boolean = true,
-    val isError: Boolean = false
+    val error: Throwable? = null
 )

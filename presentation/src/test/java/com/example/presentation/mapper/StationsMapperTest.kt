@@ -3,14 +3,20 @@ package com.example.presentation.mapper
 import com.example.domain.model.Station
 import com.example.presentation.model.StationItem
 import com.example.presentation.stations.StationsMapper
+import com.example.presentation.stations.StationsResources
 import com.example.presentation.stations.StationsState
 import com.google.common.truth.Truth
+import io.mockk.every
+import io.mockk.mockk
 import org.junit.Test
 
 
 class StationsMapperTest {
 
-    private val mapper = StationsMapper()
+    private val resources: StationsResources = mockk {
+        every { stationsScreenTitle } returns "Stations"
+    }
+    private val mapper = StationsMapper(resources)
 
     @Test
     fun `mapToStations return return StationsState`() {
@@ -19,7 +25,7 @@ class StationsMapperTest {
             StationsState(
                 title = "Stations",
                 isLoading = false,
-                isError = false,
+                error = null,
                 items = createStationItemsList()
             )
         )

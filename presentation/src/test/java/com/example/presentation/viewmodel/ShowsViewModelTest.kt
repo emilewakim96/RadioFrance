@@ -61,16 +61,16 @@ class ShowsViewModelTest: AutoCloseKoinTest() {
     }
 
     @Test
-    fun `initial state isError false`() {
+    fun `initial state error is null`() {
         val state = viewModel.state
-        Truth.assertThat(state.value.isError).isFalse()
+        Truth.assertThat(state.value.error).isNull()
     }
 
     @Test
-    fun `when getItemsUseCase throws error state isError true`() = runTest {
+    fun `when getItemsUseCase throws error state error is not null`() = runTest {
         coEvery { fetchShowsForStationUseCase.run(any()) } returns Result.failure(Throwable("api error"))
         val state: List<ShowsState> = viewModel.state.take(2).toList()
-        Truth.assertThat(state.last().isError).isTrue()
+        Truth.assertThat(state.last().error).isNotNull()
     }
 
     @After
