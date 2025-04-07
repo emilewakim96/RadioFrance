@@ -41,11 +41,16 @@ dependencies {
     implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
-    testImplementation(libs.junit)
 
     implementation(libs.koin.compose)
     implementation(libs.koin.compose.viewmodel)
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.truth)
+    testImplementation(libs.junit)
+    testImplementation(libs.koinTest)
 }

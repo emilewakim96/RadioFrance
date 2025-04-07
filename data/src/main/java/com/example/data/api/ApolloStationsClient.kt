@@ -14,16 +14,14 @@ internal class ApolloStationsClient(
 ) : ApiService {
 
     override suspend fun getStations(): List<Station> {
-        return apolloClient.query(StationsQuery()).execute()
-            .data?.brands?.filterNotNull()?.map {
-                stationsMapper.mapBrandToStation(it)
-            } ?: emptyList()
+        return stationsMapper.mapBrandsToStations(
+            apolloClient.query(StationsQuery()).execute().data?.brands
+        )
     }
 
     override suspend fun getShows(stationId: String): List<Show> {
-        return apolloClient.query(ShowsQuery(StationsEnum.valueOf(stationId))).execute()
-            .data?.shows?.let {
-                stationsMapper.mapToShows(it)
-            } ?: emptyList()
+        return stationsMapper.mapToShows(
+            apolloClient.query(ShowsQuery(StationsEnum.valueOf(stationId))).execute().data?.shows
+        )
     }
 }
