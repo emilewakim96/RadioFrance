@@ -1,6 +1,6 @@
-package com.example.radiofrance.model
+package com.example.presentation.model
 
-import com.example.radiofrance.actions.Action
+import com.example.presentation.actions.Action
 
 data class ShowItem(
     val id: String,

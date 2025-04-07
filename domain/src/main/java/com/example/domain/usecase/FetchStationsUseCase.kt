@@ -8,9 +8,5 @@ class FetchStationsUseCase(
 ) {
     suspend fun run(): Result<List<Station>> = runCatching {
         stationsRepository.getStations()
-    }.onFailure {
-        println("EMILE fail ${it.message}")
-    }.onSuccess {
-        println("EMILE success ${it}")
     }
 }

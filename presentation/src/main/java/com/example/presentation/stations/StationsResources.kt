@@ -1,4 +1,4 @@
-package com.example.radiofrance.stations
+package com.example.presentation.stations
 
 interface StationsResources {
     val title: String

@@ -1,10 +1,10 @@
-package com.example.radiofrance.stations
+package com.example.presentation.stations
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecase.FetchStationsUseCase
-import com.example.radiofrance.actions.HomeActionBuilder
-import com.example.radiofrance.actions.HomeExecutor
+import com.example.presentation.actions.HomeActionBuilder
+import com.example.presentation.actions.HomeExecutor
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
@@ -29,7 +29,6 @@ class StationsViewModel(
         .onStart {
             fetchStationsUseCase.run().onSuccess {
                 _state.value = mapper.mapToState(it, actionBuilder)
-                println("EMILE state ${_state.value}")
             }.onFailure {
                 _state.value = _state.value.copy(
                     isError = true

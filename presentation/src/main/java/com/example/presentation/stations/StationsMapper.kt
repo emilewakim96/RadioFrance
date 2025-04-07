@@ -1,7 +1,7 @@
-package com.example.radiofrance.stations
+package com.example.presentation.stations
 
 import com.example.domain.model.Station
-import com.example.radiofrance.actions.HomeActionBuilder
+import com.example.presentation.actions.HomeActionBuilder
 import com.example.presentation.model.StationItem
 
 class StationsMapper(

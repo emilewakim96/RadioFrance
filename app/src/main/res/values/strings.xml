@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RadioFrance</string>
+    <string name="default_error">Erreur de chargement des données</string>
 </resources>

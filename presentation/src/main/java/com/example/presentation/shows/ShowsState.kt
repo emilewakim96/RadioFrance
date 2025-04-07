@@ -1,6 +1,6 @@
-package com.example.radiofrance.shows
+package com.example.presentation.shows
 
-import com.example.radiofrance.model.ShowItem
+import com.example.presentation.model.ShowItem
 
 data class ShowsState(
     val title: String = "",

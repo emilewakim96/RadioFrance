@@ -1,8 +1,8 @@
-package com.example.radiofrance.shows
+package com.example.presentation.shows
 
 import com.example.domain.model.Show
-import com.example.radiofrance.actions.Action
-import com.example.radiofrance.model.ShowItem
+import com.example.presentation.actions.Action
+import com.example.presentation.model.ShowItem
 
 class ShowsMapper {
     fun mapToState(shows: List<Show>, stationId: String): ShowsState {
@@ -18,7 +18,9 @@ class ShowsMapper {
                     standFirst = show.standFirst,
                     link = Action(
                         text = show.podcast.itunes,
-                        execute = {} // TODO
+                        execute = {
+
+                        }
                     )
                 )
             }

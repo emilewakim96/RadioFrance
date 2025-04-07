@@ -23,7 +23,7 @@ fun StationCard(item: StationItem, onClick: () -> Unit) {
             },
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
-            Text(text = item.title, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight(600)))
+            Text(text = item.title, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold))
             item.description?.let { Text(text = it, style = MaterialTheme.typography.bodyMedium) }
 //            Button(
 //                onClick = {
