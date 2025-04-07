@@ -1,14 +1,13 @@
 package com.example.presentation.stations
 
 import com.example.domain.model.Station
-import com.example.presentation.actions.HomeActionBuilder
 import com.example.presentation.model.StationItem
 
 class StationsMapper(
 //    private val resources: StationsResources,
 ) {
 
-    fun mapToState(items: List<Station>, actionBuilder: HomeActionBuilder): StationsState =
+    fun mapToState(items: List<Station>): StationsState =
         StationsState(
             title = "Stations",
             items = items.map {

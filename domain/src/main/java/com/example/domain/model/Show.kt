@@ -5,5 +5,4 @@ data class Show(
     val title: String,
     val url: String?,
     val standFirst: String?,
-    val podcast: Podcast,
 )

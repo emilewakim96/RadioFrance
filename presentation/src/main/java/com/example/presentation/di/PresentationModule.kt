@@ -1,6 +1,6 @@
 package com.example.presentation.di
 
-import com.example.presentation.actions.HomeActionBuilder
+import com.example.presentation.shows.ShowsActionBuilder
 import com.example.presentation.shows.ShowsMapper
 import com.example.presentation.shows.ShowsViewModel
 import com.example.presentation.stations.StationsMapper
@@ -15,5 +15,5 @@ val presentationModule = module {
     factoryOf(::ShowsMapper)
     viewModelOf(::ShowsViewModel)
 
-    factory { parametersHolder -> HomeActionBuilder(parametersHolder.get()) }
+    factory { parametersHolder -> ShowsActionBuilder(parametersHolder.get()) }
 }

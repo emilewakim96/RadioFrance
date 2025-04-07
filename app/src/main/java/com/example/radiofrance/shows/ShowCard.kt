@@ -9,17 +9,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.presentation.model.ShowItem
 
 @Composable
-fun ShowCard(item: ShowItem, onClick: () -> Unit) {
+fun ShowCard(item: ShowItem) {
     Card(
         modifier = Modifier
-            .clickable {
-                onClick()
-            }
             .fillMaxWidth()
     ) {
         Column(modifier = Modifier.padding(8.dp)) {
@@ -28,13 +26,7 @@ fun ShowCard(item: ShowItem, onClick: () -> Unit) {
                 text = item.title,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold)
             )
-            item.url?.let {
-                Text(
-                    modifier = Modifier.padding(4.dp),
-                    text = it,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
+
             item.standFirst?.let {
                 Text(
                     modifier = Modifier.padding(4.dp),
@@ -43,14 +35,15 @@ fun ShowCard(item: ShowItem, onClick: () -> Unit) {
                 )
             }
 
-            item.link.text.takeIf { it.isNotEmpty() }?.let {
+            item.url?.takeIf { item.seeUrl.text.isNotEmpty() }?.let {
                 Text(
-                    modifier = Modifier.padding(4.dp)
+                    modifier = Modifier
+                        .padding(4.dp)
                         .clickable {
-                            item.link.execute(it)
+                            item.seeUrl.execute(item.seeUrl.text)
                         },
                     text = it,
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium.copy(color = Color.Blue.copy(alpha = 0.4f))
                 )
             }
         }

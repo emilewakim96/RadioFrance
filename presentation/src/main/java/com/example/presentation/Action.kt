@@ -1,4 +1,4 @@
-package com.example.presentation.actions
+package com.example.presentation
 
 open class Action<T>(
     open val text: String = "",

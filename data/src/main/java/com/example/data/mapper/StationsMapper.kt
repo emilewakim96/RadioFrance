@@ -1,6 +1,5 @@
 package com.example.data.mapper
 
-import com.example.domain.model.Podcast
 import com.example.domain.model.Show
 import com.example.domain.model.Station
 import com.example.radiofrancetest.android.graphql.ShowsQuery
@@ -22,10 +21,6 @@ internal class StationsMapper {
             id = brand.id,
             title = brand.title,
             url = brand.url,
-            standFirst = brand.standFirst,
-            podcast = Podcast(
-                rss = brand.podcast?.rss ?: "",
-                itunes = brand.podcast?.itunes ?: ""
-            )
+            standFirst = brand.standFirst
         )
 }
